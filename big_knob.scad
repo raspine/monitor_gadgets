@@ -17,13 +17,26 @@ module smooth_stop() {
 	}
 }
 
+module end_stop() {
+	difference() {
+		union() {
+			rounded_extrude(circle_r * 2, round_r) circle(circle_r);
+			translate([0, 0, 8]) cylinder(h = 2, r1 = circle_r + round_r, r2 = circle_r + round_r);
+		}
+	translate([0, 0, 4]) rotate([90, 0, 90])
+		linear_extrude(2*circle_r) polygon(points=[[-12,0],[12,0],[10,6],[-10,6]]);
+	}
+}
+
 module knob() {
 translate([0, 0, 75]) rotate([0, 180, 0]) {
 	smooth_stop();
 	cylinder(h=65, r1=20, r2=20, center=false);
+	translate([0, 0, 65]) end_stop();
 	difference() {
-		translate([35, 0, 70]) cube([70, 40, 10], center=true);
-		translate([0, 0, 69]) rotate([90, 0, 90]) linear_extrude(100) polygon(points=[[-15,0],[15,0],[10,6],[-10,6]]);
+		translate([14, 0, 70]) cube([28, 40, 10], center=true);
+		translate([0, 0, 69]) rotate([90, 0, 90])
+			linear_extrude(100) polygon(points=[[-12,0],[12,0],[10,6],[-10,6]]);
 	}
 	difference() {
 		translate([0, 0, 65]) cylinder(h=10, r1=20, r2=20, center=false);
@@ -31,7 +44,6 @@ translate([0, 0, 75]) rotate([0, 180, 0]) {
 	}
 	}
 }
-
 
 knob();
 
