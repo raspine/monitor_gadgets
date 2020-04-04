@@ -4,7 +4,7 @@ $fn = 100;
 holder_width=60;
 step_angle = 10;
 
-module extender_mount() {
+module mount() {
 	difference() {
 		cube(size=[8, 40, 30], center=true);
 		translate([2, 0, -13]) {
@@ -18,24 +18,24 @@ module extender_mount() {
 }
 
 module screw_mount() {
-	translate([3, 0.2, 0]) {
-		translate([8, 24.8, 8]) {
+	translate([3.5, 0.2, 0]) {
+		translate([8, 24.8, 8.2]) {
 			rotate([90, 0, 0]) {
 				difference() {
-					cylinder(10, r1=7, r2=7, center=true);
+					cylinder(10, r1=6.8, r2=6.8, center=true);
 					cylinder(10, r1=3, r2=3, center=true);
 				}
 			}
 		}
-		translate([8, 20.6, 8]) {
+		translate([8, 20.6, 8.2]) {
 			for(a = [0:step_angle:360]) {
-				rotate([0, a, 0]) translate([0, 0, 5])
+				rotate([0, a, 0]) translate([0, 0, 4.8])
 					cylinder(3.5, 1, 1, center=true);
 			}
 		}
-		translate([0.5, 24.8, 8]) {
+		translate([0.5, 24.8, 8.2]) {
 		difference() {
-			cube(size=[15, 10, 14], center=true);
+			translate([-0.25, 0, 0]) cube(size=[15.5, 10, 13.6], center=true);
 			rotate([90, 0, 0]) {
 				translate([7.5, 0, 0]) cylinder(10, r1=3, r2=3, center=true);
 			}
@@ -43,8 +43,12 @@ module screw_mount() {
 		}
 	}
 }
-screw_mount();
-translate([0, 0, 16]) rotate([180, 0, 0]) screw_mount();
+
+module extender_mount() {
+	screw_mount();
+	translate([0, 0, 16.4]) rotate([180, 0, 0]) screw_mount();
+	mount();
+}
 extender_mount();
 
 // vim: ts=2:sw=2:noet:commentstring=//\ %s
