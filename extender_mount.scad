@@ -18,27 +18,27 @@ module mount() {
 }
 
 module screw_mount() {
-	translate([3.5, 0.2, 0]) {
+	translate([3.5, -8.3, 0]) {
 		translate([8, 24.8, 8.2]) {
 			rotate([90, 0, 0]) {
 				difference() {
-					cylinder(10, r1=6.8, r2=6.8, center=true);
-					cylinder(10, r1=3, r2=3, center=true);
+					cylinder(7, r1=6.8, r2=6.8, center=true);
+					cylinder(7, r1=3, r2=3, center=true);
 				}
 			}
 		}
-		translate([8, 20.6, 8.2]) {
+		translate([8, 22.1, 8.2]) {
 			for(a = [0:step_angle:360]) {
 				rotate([0, a, 0]) translate([0, 0, 4.8])
 					cylinder(3.5, 1, 1, center=true);
 			}
 		}
-		translate([0.5, 24.8, 8.2]) {
+		translate([4.5, 24.8, 8.2]) {
 		difference() {
-			translate([-0.25, 0, 0]) cube(size=[15.5, 10, 13.6], center=true);
-			rotate([90, 0, 0]) {
-				translate([7.5, 0, 0]) cylinder(10, r1=3, r2=3, center=true);
-			}
+			translate([-0.25, 0, 0]) cube(size=[8, 7, 13.6], center=true);
+				rotate([90, 0, 0]) {
+					translate([3.5, 0, 0]) cylinder(10, r1=3, r2=3, center=true);
+				}
 			}
 		}
 	}

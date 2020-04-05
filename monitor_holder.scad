@@ -2,7 +2,7 @@ use <submodules/dotSCAD/src/rounded_cube.scad>;
 // use <extender_mount.scad>
 
 $fn = 100;
-holder_width=60;
+holder_width=55;
 grip_height=15;
 grip_width = 21.8;
 step_angle = 10;
@@ -11,18 +11,18 @@ module screw_mount() {
 	translate([grip_width/2+10, 0, 7]) {
 	  rotate([90, 0, 0]) {
 			difference() {
-				cylinder(holder_width-20.6, r1=7, r2=7, center=true);
+				cylinder(25.4, r1=7, r2=7, center=true);
 				cylinder(holder_width-20, r1=3, r2=3, center=true);
 			}
 		}
 	}
-	translate([grip_width/2+10, 18.9, 7]) {
+	translate([grip_width/2+10, 11.9, 7]) {
 		for(a = [0:step_angle:360]) {
 			rotate([0, a, 0]) translate([0, 0, 5])
 				cylinder(3.5, 1, 1, center=true);
 		}
 	}
-	translate([grip_width/2+10, -18.9, 7]) {
+	translate([grip_width/2+10, -11.9, 7]) {
 		for(a = [0:step_angle:360]) {
 			rotate([0, a, 0]) translate([0, 0, 5])
 				cylinder(3.5, 1, 1, center=true);
