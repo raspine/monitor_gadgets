@@ -49,7 +49,7 @@ module extender_mount() {
 	translate([0, 0, 16.4]) rotate([180, 0, 0]) screw_mount();
 	mount();
 }
-extender_mount();
+translate([0, 0, 4]) rotate([0, -90, 0]) extender_mount();
 
 // vim: ts=2:sw=2:noet:commentstring=//\ %s
 
