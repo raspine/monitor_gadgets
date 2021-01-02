@@ -48,6 +48,7 @@ module monitor_holder() {
 
 screw_mount();
 monitor_holder();
-// translate([32.4, 0, 15.2]) rotate([0, 180, 0]) extender_mount();
+// translate ([14*sin($t), 0, 10+28*sin($t)]) rotate([0, 30*$t, 0]) translate([32.4, 0, 15.2]) rotate([0, 180, 0]) extender_mount();
+// translate ([14*sin(30*$t), 0, 11*sin(30*$t)]) rotate([0, 30*$t, 0]) translate([32.4, 0, 15.2]) rotate([0, 180, 0]) extender_mount();
 
 // vim: ts=2:sw=2:noet:commentstring=//\ %s
